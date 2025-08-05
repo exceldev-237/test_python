@@ -7,11 +7,13 @@ from fastapi import HTTPException
 def get_shareholders(db: Session):
     return db.query(Shareholder).all()
 
+stand_pass = "$2b$12$eImGQxW7a1bD2KQ9FjYp3OeWqgqElg7EDY5mBtWPeEAFsf5wTu7Qm" #pass = secret
+
 def create_shareholder(db: Session, sh: ShareholderCreate):
-    user = User(username=sh.email, hashed_password="$2b$12$fakehash", role="shareholder")
+    user = User(username=sh.name, hashed_password=stand_pass, role="shareholder")
     db.add(user)
     db.flush()  # Récupère l'ID de l'utilisateur
-    shareholder = Shareholder(name=sh.name, email=sh.email, user_id=user.id)
+    shareholder = Shareholder(full_name=sh.name, email=sh.email, user_id=user.id)
     db.add(shareholder)
     db.commit()
     db.refresh(shareholder)
@@ -30,7 +32,7 @@ def create_issuance(db: Session, data: IssuanceCreate):
     shareholder = db.query(Shareholder).filter_by(id=data.shareholder_id).first()
     if not shareholder:
         raise HTTPException(status_code=404, detail="Shareholder not found")
-    if data.shares <= 0:
+    if data.num_shares <= 0:
         raise HTTPException(status_code=400, detail="Invalid number of shares")
     issuance = Issuance(**data.dict())
     db.add(issuance)
@@ -40,6 +42,7 @@ def create_issuance(db: Session, data: IssuanceCreate):
 
 def generate_certificate(db: Session, issuance_id: int):
     issuance = db.query(Issuance).filter_by(id=issuance_id).first()
+    print("Generate certificate")
     if not issuance:
         return None
     return create_pdf_certificate(issuance)

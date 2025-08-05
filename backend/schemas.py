@@ -22,8 +22,8 @@ class Shareholder(ShareholderBase):
         from_attributes = True
 
 class IssuanceBase(BaseModel):
-    shares: int
-    price: float
+    num_shares: int
+    price_per_share: float
 
 class IssuanceCreate(IssuanceBase):
     shareholder_id: int

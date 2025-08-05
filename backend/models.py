@@ -15,7 +15,7 @@ class User(Base):
 class Shareholder(Base):
     __tablename__ = "shareholders"
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String)
+    full_name = Column(String)
     email = Column(String, unique=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     user = relationship("User", back_populates="shareholder")
@@ -25,8 +25,8 @@ class Issuance(Base):
     __tablename__ = "issuances"
     id = Column(Integer, primary_key=True, index=True)
     shareholder_id = Column(Integer, ForeignKey("shareholders.id"))
-    shares = Column(Integer)
-    price = Column(Float)
-    date = Column(DateTime, default=datetime.utcnow)
+    num_shares = Column(Integer)
+    price_per_share = Column(Float)
+    issued_at = Column(DateTime, default=datetime.utcnow)
     shareholder = relationship("Shareholder", back_populates="issuances")
 

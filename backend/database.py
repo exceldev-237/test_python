@@ -1,12 +1,16 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import psycopg2
+from config import config
 
-DATABASE_URL = 'postgresql://neondb_owner:npg_90nqPWxudtCN@ep-divine-block-ae9bs4kg-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+
+DATABASE_URL = 'postgresql://postgres:root@localhost/shareolder_app'
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
+
 
 def get_db():
     db = SessionLocal()

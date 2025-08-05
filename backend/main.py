@@ -48,22 +48,3 @@ def issue_shares(issue: schemas.IssuanceCreate, db: Session = Depends(get_db), u
 def get_certificate(issuance_id: int, db: Session = Depends(get_db), user=Depends(auth.get_current_user)):
     return FileResponse(crud.generate_certificate(db, issuance_id))
 
-
-def init_admin():
-    db = SessionLocal()
-    admin_user = db.query(User).filter(User.username == "admin").first()
-    if not admin_user:
-        new_admin = User(
-            username="admin",
-            hashed_password=get_password_hash("secret"),
-            role="admin"
-        )
-        db.add(new_admin)
-        db.commit()
-        print("✅ Utilisateur admin créé avec succès !")
-    else:
-        print("ℹ️ Utilisateur admin déjà existant.")
-    db.close()
-
-# Appelé au démarrage
-init_admin()

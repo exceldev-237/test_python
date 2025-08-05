@@ -1,0 +1,26 @@
+def init_admin():
+    db = SessionLocal()
+    admin_user = db.query(User).filter(User.username == "admin").first()
+    if not admin_user:
+        new_admin = User(
+            username="admin",
+            hashed_password=get_password_hash("secret"),
+            role="admin"
+        )
+        db.add(new_admin)
+        db.commit()
+        print("✅ Utilisateur admin créé avec succès !")
+    else:
+        print("ℹ️ Utilisateur admin déjà existant.")
+    db.close()
+
+# Appelé au démarrage
+init_admin()
+
+DATABASE_URL = 'postgresql://neondb_owner:npg_90nqPWxudtCN@ep-divine-block-ae9bs4kg-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+def connect():
