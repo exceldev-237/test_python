@@ -124,7 +124,7 @@ You can use these users for testing:
   - `password`: secret
 
 - **Shareholder (after creation):**
-  - `username`: excel@gmail.com
+  - `username`: excel_sime
   - `password`: any (password test: secret)
 
 ---
@@ -140,6 +140,18 @@ PDF files are generated dynamically using ReportLab and include:
 
 ---
 
+## Project tree structure
+
+backend/
+├── main.py
+├── models.py
+├── schemas.py
+├── crud.py
+├── auth.py
+├── config.py
+├── database.py
+└── utils/pdf_generator.py
+
 ## 🧪 Testing
 
 Test endpoints using tools like  **Thunder** or **Postman** or **curl** with the provided token.
@@ -148,5 +160,6 @@ Test endpoints using tools like  **Thunder** or **Postman** or **curl** with the
 
 Enjoy building 🚀
 
+You have database in directory /database
 
 Développed by Excel SIME (excelsime10@gmail.com) 🧠
