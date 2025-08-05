@@ -8,9 +8,7 @@ from sqlalchemy.orm import Session
 from starlette.responses import FileResponse
 import models, schemas, crud, auth
 from database import engine, get_db
-from database import SessionLocal
-from auth import get_password_hash
-from models import User
+
 
 models.Base.metadata.create_all(bind=engine)
 
