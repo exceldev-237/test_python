@@ -161,4 +161,4 @@ backend/
 
 ---
 
-Développé par [VotreNom] 🧠
+Développé par Excel SIME (excelsime10@gmail.com) 🧠
