@@ -7,6 +7,16 @@ This RESTful API built with FastAPI and PostgreSQL allows for the management of 
 
 ## 🚀 How to Run the Project
 
+Make sure you have:
+
+- Python 3.10+
+- The dependencies installed:
+```bash
+pip install -r requirements.txt
+```
+
+The directory of backend projetc /backend
+
 ### 1. Clone the Repository
 
 ```bash
@@ -160,5 +170,18 @@ Test endpoints using tools like  **Thunder** or **Postman** or **curl** with the
 ---
 
 Enjoy building 🚀
+
+## To Do
+
+✅ JWT Auth
+✅ Shareholder management
+✅ PDF certificate generation
+✅ Collision in Share issuance (bonus)
+❌ Email notifications (bonus)
+❌ Share logging (bonus)
+
+## Used AI
+
+Main AI used: **Winfsurf** , **Copilot**.
 
 Développed by Excel SIME (excelsime10@gmail.com) 🧠
