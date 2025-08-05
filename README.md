@@ -19,14 +19,15 @@ cd your-repo-folder
 Make sure PostgreSQL is installed and running.
 
 ```sql
-CREATE DATABASE shareholders_db;
+CREATE DATABASE shareholders_app;
 ```
 
 Update `DATABASE_URL` in `database.py` accordingly:
 
 ```python
-DATABASE_URL = "postgresql://postgres:root@localhost/shareholders_db"
+DATABASE_URL = "postgresql://postgres:root@localhost/sharesholders_app"
 ```
+You have database in directory /database
 
 ### 3. Install Dependencies
 
@@ -159,7 +160,5 @@ Test endpoints using tools like  **Thunder** or **Postman** or **curl** with the
 ---
 
 Enjoy building 🚀
-
-You have database in directory /database
 
 Développed by Excel SIME (excelsime10@gmail.com) 🧠

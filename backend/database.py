@@ -5,7 +5,7 @@ import psycopg2
 from config import config
 
 
-DATABASE_URL = 'postgresql://postgres:root@localhost/shareolder_app'
+DATABASE_URL = 'postgresql://postgres:root@localhost/sharesholders_app'
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
