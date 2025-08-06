@@ -174,10 +174,15 @@ Enjoy building 🚀
 ## To Do
 
 ✅ JWT Auth
+
 ✅ Shareholder management
+
 ✅ PDF certificate generation
+
 ✅ Collision in Share issuance (bonus)
+
 ❌ Email notifications (bonus)
+
 ❌ Share logging (bonus)
 
 ## Used AI
